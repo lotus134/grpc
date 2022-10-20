@@ -1,0 +1,14 @@
+syntax = "proto3";
+option go_package="./greeter";
+
+service Greeter{
+    rpc SayHelloWorld(HelloWorldReq) returns (HelloWorldRes);
+}
+message HelloWorldReq{
+    string name=1;
+}
+message HelloWorldRes{
+    string message=1;
+}
+
+//执行protoc --go_out=plugins=grpc:./ *.proto
